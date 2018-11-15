@@ -496,7 +496,7 @@
 
 	          	if (d.latitude!=null && d.latitude!=undefined) {
               // add a Leaflet marker for the lat lng and insert the application's stated purpose in popup
-                  var mark = L.marker([d.latitude, d.longitude]).bindPopup(d.City);
+                  var mark = L.marker([d.latitude, d.longitude]);
                   markersLayer.addLayer(mark);
                   clusterLayer.addLayer(mark);
 	  			}
