@@ -199,7 +199,7 @@
 			    </div>
 			      	<div class='row'>
 				<div class='col-xs-12'>
-					<h3>Data Table</h3>
+					<h3> - DataTable</h3>
 						<table class='table table-hover' id='dc-table-chart'>
 							<thead>
 								<tr class='header'>
@@ -533,6 +533,7 @@
 	             var mark = L.marker([d.latitude, d.longitude]);
 	             markersLayer.addLayer(mark);
 	             clusterLayer.addLayer(mark);
+
 	           } 
 
 	         });
@@ -562,9 +563,8 @@
 	          var type = xdata.dimension(function(d) { return d.type; });
 	          var enteredDates = xdata.dimension(function (d) { return d.date_e; });
           	  var issuanceDates = xdata.dimension(function (d) { return d.date_i; });
+          	  ///EMPTY BINS
 
-
-        
 			
 
 	          // Marker Chart
@@ -594,7 +594,7 @@
 	          // Start constructing the charts and setting each chart's options
 
 	          citiesChart.width($('#city-chart').innerWidth()-30)
-	          .height(250)
+	          .height(400)
 	          .colors(commonChartBarColor)
 	          .margins({top: 10, left: 20, right: 10, bottom: 20})
 	          .group(cities.group())
@@ -623,7 +623,7 @@
 	          //.on("filtered", onFilt);
 
 	          districtChart.width($('#District-chart').innerWidth()-30)
-	          .height(window.innerHeight - 50)
+	          .height(window.innerHeight - 150)
 	          .colors(commonChartBarColor)
 	          .margins({top: 10, left: 10, right: 10, bottom: 20})
 	          .group(districttype.group())
@@ -785,6 +785,7 @@
 					dc.redrawAll();}
 				});
 				
+
 	
 				//initial table refresh
 				RefreshTable();
@@ -793,6 +794,7 @@
 
 /////////////////////////////////////////////////FORCE FILTERING ON THE MAP///////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 ///////////TYPE CHART
