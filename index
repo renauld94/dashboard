@@ -614,22 +614,31 @@
 	          .xAxis().ticks(5);
 	       
 	          
-	         //// CHARTS STACKED 
+	         //// CHARTS DISTRICT
+	            	  ///EMPTY BINS
+       		  var group = districttype.group();
+			  var filtered_group = remove_empty_bins(group)
+      
+      
+		      function remove_empty_bins(source_group) {
+		            return {
+		                all:function () {
+		                    return source_group.all().filter(function(d) {
 
+		                        return d.value !== 0; // if integers only
+		                    });
+		                }
+		            };
+		        }
 
-
-	          ///https://jsfiddle.net/rmc2zpr4/
-
-	          //.on("filtered", onFilt);
 
 	          districtChart.width($('#District-chart').innerWidth()-30)
 	          .height(window.innerHeight - 100)
 	          .colors(commonChartBarColor)
 	          .margins({top: 10, left: 10, right: 10, bottom: 20})
-	          .group(districttype.group())
 	          .dimension(districttype)
+			  .group(filtered_group)
 	          .elasticX(true)
-	          .cap(25)
 	          .ordering(function(d) {
 	             return -d.value
 	          })
