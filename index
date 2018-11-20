@@ -479,7 +479,7 @@
 	        var City = null;
 	        var locations = null;
 
-	        // Called when dc.js is filtered (typically from user click interaction)
+	  // Called when dc.js is filtered (typically from user click interaction)
 	        var onFilt = function(chart, filter) {
 	          updateMap(locations.top(Infinity));
 	        };
@@ -487,20 +487,44 @@
 	        // Updates the displayed map markers to reflect the crossfilter dimension passed in
 	        var updateMap = function(locs) {
 	          // clear the existing markers from the map
-	          markersLayer.clearLayers();
-	          clusterLayer.clearLayers();
+	          //markersLayer.clearLayers();
+	          //clusterLayer.clearLayers();
+	        var minlat = 200, minlon = 200, maxlat = -200, maxlon = -200;
 
-	          locs.forEach( function(d, i) {
+
+	        locs.forEach( function(d, i) {
 
 	          	if (d.latitude!=null && d.latitude!=undefined) {
-              // add a Leaflet marker for the lat lng and insert the application's stated purpose in popup
-                  var mark = L.marker([d.latitude, d.longitude]);
-                  markersLayer.addLayer(mark);
-                  clusterLayer.addLayer(mark);
-	  			}
-	          });
-	          
-	        };
+              // add a Leaflet marker for the lat lng and insert the application's stated purpose in popup\
+
+              	// find corners
+			      if (minlat > d.latitude) minlat = d.latitude;
+			      if (minlon > d.longitude) minlon = d.longitude;
+			      if (maxlat < d.latitude) maxlat = d.latitude;
+			      if (maxlon < d.longitude) maxlon = d.longitude;
+            
+
+                  L.marker([d.latitude, d.longitude]);
+
+                   }
+  				});
+
+	        	c1 = L.latLng(minlat, minlon);
+  				c2 = L.latLng(maxlat, maxlon);
+
+  				 // fit bounds
+  				map.fitBounds(L.latLngBounds(c1, c2));
+
+				// correct zoom to fit markers
+				  setTimeout(function() {
+				    map.setZoom(map.getZoom() - 1);
+				  }, 500);
+
+				};
+
+				function filtr() {
+				  updateMap(filter);
+				};
 	        ///////////////////////////////////////////////////////
 	        // http://wallinm1.github.io/map-dashboard/
 	        /////////////////////////////////////////////////////
