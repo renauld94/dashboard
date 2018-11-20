@@ -276,8 +276,8 @@
 	        // Initialize the Leaflet map and set an initial location and zoom level
 	        ////////////////////////////////////////////////////////////////////////////////////////////////////
 	        var map = L.map('map', {
-	          center: [10.762622, 106.660172],
-	          zoom: 10,
+	          center: [16.461109, 107.570183],
+	          zoom: 6,
 	          layers: [cartodb_light, clusterLayer]
 	        }),
 
