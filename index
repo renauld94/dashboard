@@ -487,9 +487,9 @@
 	        // Updates the displayed map markers to reflect the crossfilter dimension passed in
 	        var updateMap = function(locs) {
 	          // clear the existing markers from the map
-	          //markersLayer.clearLayers();
-	          //clusterLayer.clearLayers();
-	        var minlat = 200, minlon = 200, maxlat = -200, maxlon = -200;
+	          markersLayer.clearLayers();
+	          clusterLayer.clearLayers();
+	          var minlat = 200, minlon = 200, maxlat = -200, maxlon = -200;
 
 
 	        locs.forEach( function(d, i) {
@@ -504,7 +504,7 @@
 			      if (maxlon < d.longitude) maxlon = d.longitude;
             
 
-                  L.marker([d.latitude, d.longitude]);
+                  L.markersLayer([d.latitude, d.longitude]);
 
                    }
   				});
