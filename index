@@ -523,7 +523,7 @@
 				};
 
 				function filtr() {
-				  updateMap(data);
+				  updateMap(filterAll);
 				};
 	        ///////////////////////////////////////////////////////
 	        // http://wallinm1.github.io/map-dashboard/
