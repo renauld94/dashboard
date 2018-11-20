@@ -487,8 +487,8 @@
 	        // Updates the displayed map markers to reflect the crossfilter dimension passed in
 	        var updateMap = function(locs) {
 	          // clear the existing markers from the map
-	          markersLayer.clearLayers();
-	          clusterLayer.clearLayers();
+	          //markersLayer.clearLayers();
+	          //clusterLayer.clearLayers();
 	          var minlat = 200, minlon = 200, maxlat = -200, maxlon = -200;
 
 
@@ -523,7 +523,7 @@
 				};
 
 				function filtr() {
-				  updateMap(filterAll);
+				  updateMap(onFilt);
 				};
 	        ///////////////////////////////////////////////////////
 	        // http://wallinm1.github.io/map-dashboard/
